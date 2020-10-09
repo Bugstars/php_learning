@@ -1,0 +1,3 @@
+ 警告: [2] file_get_contents(https://www.baidu.com/error): failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found
+ 错误文件: C:\Users\renpa\Desktop\php_learning\oop\error.php
+ 错误行: 16
