@@ -67,17 +67,17 @@ trait Component
     // 引用多个 Trait 通过逗号分隔即可
     // 调用的时候需要用到insteadof来区别同名方法
     // PHP 还提供了别名方案，我们可以通过 as 关键字为同名方法设置不同别名，再通过别名来调用对应方法，不过这种方式还是要先通过 insteadof 解决方法名冲突问题
-    use Power, Engine {
-        Engine::print insteadof Power;
-        Power::print as printPower;
-        Engine::print as printEngine;
-    }
-
-    protected function init()
-    {
-        $this->gas();
-        $this->four();
-    }
+//    use Power, Engine {
+//        Engine::print insteadof Power;
+//        Power::print as printPower;
+//        Engine::print as printEngine;
+//    }
+//
+//    protected function init()
+//    {
+//        $this->gas();
+//        $this->four();
+//    }
 }
 
 class Car
