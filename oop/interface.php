@@ -38,7 +38,6 @@ class LynkCo extends BaseCar
 
     public function driver()
     {
-        // TODO: Implement driver() method.
         echo "启动{$this->brand}汽车" . PHP_EOL;
     }
 }

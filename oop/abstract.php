@@ -16,7 +16,6 @@ class BWM extends Car
 {
     public function driver()
     {
-        // TODO: Implement driver() method.
         echo 'abstract hello world!';
     }
 }
