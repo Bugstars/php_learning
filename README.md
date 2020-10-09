@@ -4,7 +4,7 @@
 
 ### 1. 环境搭建
 `"最好是使用docker容器化部署本地开发环境，可以用到docker-compose编排环境"`
-`"以前没有docker的时候，其实我在本地一直用的是Laragon继承环境(在windows操作系统中)，它非常好用！"`
+`"以前没有docker的时候，其实我在本地一直用的是Laragon集成环境(在windows操作系统中)，它非常好用！"`
 > //TODO
 * 本地开发环境搭建 Windows篇
 * 本地开发环境搭建 Mac篇
