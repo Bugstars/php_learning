@@ -26,3 +26,7 @@ echo 'getWheels: ' . Car::getWheels() . PHP_EOL;
 
 Car::$WHEELS = 8;
 echo 'WHEELS:' . Car::$WHEELS . PHP_EOL;
+
+/**
+ * 我们前面提到不能在静态方法中通过 $this 调用非静态属性/方法，但是在非静态方法中可以通过 self:: 调用静态属性/方法
+ */
