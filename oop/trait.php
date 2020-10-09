@@ -57,7 +57,12 @@ trait Engine
     }
 }
 
-class Car
+/**
+ * Trait Component
+ * Trait 除了可以被类使用来扩展类功能，还可以组合多个 Trait 构建更复杂的 Trait 实现更强大的功能。
+ * 比如，我们可以编写一个 Component Trait 来组合上面定义的 Power 和 Engine Trait
+ */
+trait Component
 {
     // 引用多个 Trait 通过逗号分隔即可
     // 调用的时候需要用到insteadof来区别同名方法
@@ -68,11 +73,26 @@ class Car
         Engine::print as printEngine;
     }
 
-    public function drive()
+    protected function init()
     {
         $this->gas();
         $this->four();
-        $this->print();
+    }
+}
+
+class Car
+{
+    use Component;
+
+    public function drive()
+    {
+//        $this->gas();
+//        $this->four();
+//        $this->printPower();
+//        $this->printEngine();
+//        echo '汽车启动...' . PHP_EOL;
+
+        $this->init();
         $this->printPower();
         $this->printEngine();
         echo '汽车启动...' . PHP_EOL;
