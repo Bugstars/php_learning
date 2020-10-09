@@ -19,3 +19,10 @@ class Car
 
 echo 'WHEELS: ' . Car::$WHEELS . PHP_EOL;
 echo 'getWheels: ' . Car::getWheels() . PHP_EOL;
+
+/**
+ * 静态属性支持动态修改
+ */
+
+Car::$WHEELS = 8;
+echo 'WHEELS:' . Car::$WHEELS . PHP_EOL;
