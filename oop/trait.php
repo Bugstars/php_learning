@@ -20,12 +20,31 @@ trait Power
     }
 }
 
+/**
+ * Trait Engine
+ * 第二个Trait，可以使用多个Trait
+ */
+trait Engine
+{
+    protected function three()
+    {
+        return '三缸发动机';
+    }
+
+    protected function four()
+    {
+        return '四缸发动机';
+    }
+}
+
 class Car
 {
-    use Power;
+    // 引用多个 Trait 通过逗号分隔即可
+    use Power, Engine;
 
     public function drive()
     {
+        echo '发动机: ' . $this->three() . PHP_EOL;
         echo '动力来源: ' . $this->gas() . PHP_EOL;
         echo '汽车启动...' . PHP_EOL;
     }
@@ -33,3 +52,4 @@ class Car
 
 $car = new Car();
 $car->drive();
+
