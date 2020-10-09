@@ -9,14 +9,24 @@
  */
 trait Power
 {
+    protected $power;
+
     protected function gas()
     {
-        return '汽油';
+        $this->power = '汽油';
     }
 
     protected function battery()
     {
-        return '电池';
+        $this->power = '电池';
+    }
+
+    /**
+     * 同名方法 print() 调用的时候需要用到insteadof来区别
+     */
+    public function print()
+    {
+        echo '动力来源: ' . $this->power . PHP_EOL;
     }
 }
 
@@ -26,26 +36,45 @@ trait Power
  */
 trait Engine
 {
+    protected $engine;
+
     protected function three()
     {
-        return '三缸发动机';
+        $this->engine = '三缸发动机';
     }
 
     protected function four()
     {
-        return '四缸发动机';
+        $this->engine = '四缸发动机';
+    }
+
+    /**
+     * 同名方法 print() 调用的时候需要用到insteadof来区别
+     */
+    public function print()
+    {
+        echo '发动机: ' . $this->engine . PHP_EOL;
     }
 }
 
 class Car
 {
     // 引用多个 Trait 通过逗号分隔即可
-    use Power, Engine;
+    // 调用的时候需要用到insteadof来区别同名方法
+    // PHP 还提供了别名方案，我们可以通过 as 关键字为同名方法设置不同别名，再通过别名来调用对应方法，不过这种方式还是要先通过 insteadof 解决方法名冲突问题
+    use Power, Engine {
+        Engine::print insteadof Power;
+        Power::print as printPower;
+        Engine::print as printEngine;
+    }
 
     public function drive()
     {
-        echo '发动机: ' . $this->three() . PHP_EOL;
-        echo '动力来源: ' . $this->gas() . PHP_EOL;
+        $this->gas();
+        $this->four();
+        $this->print();
+        $this->printPower();
+        $this->printEngine();
         echo '汽车启动...' . PHP_EOL;
     }
 }
